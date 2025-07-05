@@ -1,0 +1,74 @@
+﻿@model IEnumerable<VetApp.Models.HistPeso>
+
+@{
+    ViewData["Title"] = "Pesos";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create" class="btn btn-primary">Create New</a>
+</p>
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.FechaPesaje)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Peso)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CodMascotaNavigation.CodMascota)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FechaPesaje)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Peso) kgs
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CodMascotaNavigation.CodMascota)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-codMascota="@item.CodMascota" asp-route-fechaPesaje="@item.FechaPesaje" class="btn btn-primary">Edit</a> |
+                    <a asp-action="Details" asp-route-codMascota="@item.CodMascota" asp-route-fechaPesaje="@item.FechaPesaje" class="btn btn-info">Details</a> |
+                    <a asp-action="Delete" asp-route-codMascota="@item.CodMascota" asp-route-fechaPesaje="@item.FechaPesaje" class="btn btn-danger">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<style>
+    .btn-primary {
+        background-color: #007bff; /* Azul */
+        border-color: #007bff;
+        color: white;
+        margin-right: 5px;
+    }
+
+    .btn-info {
+        background-color: #17a2b8; /* Celeste */
+        border-color: #17a2b8;
+        color: white;
+    }
+
+    .btn-danger {
+        background-color: #dc3545; /* Rojo */
+        border-color: #dc3545;
+        color: white;
+    }
+
+    .btn {
+        border-radius: 5px;
+        padding: 10px 20px;
+    }
+</style>

@@ -1,0 +1,41 @@
+﻿@model IEnumerable<VetApp.Models.ConsumosVetReportViewModel>
+
+@{
+    ViewData["Title"] = "Medic Report Results";
+}
+
+<h1>Medic Report Results</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Mascota</th>
+            <th>Nombre Mascota</th>
+            <th>Cliente</th>
+            <th>Servicio</th>
+            <th>Nombre Servicio</th>
+            <th>Observaciones</th>
+            <th>Cantidad Vacunas</th>
+            <th>NIT</th>
+            <th>Fecha</th>
+            <th>Precio Total</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.CodMascota</td>
+                <td>@item.NombreMascota</td>
+                <td>@item.Cliente</td>
+                <td>@item.IdServicio</td>
+                <td>@item.NombreServicio</td>
+                <td>@item.Observaciones</td>
+                <td>@item.CantVacunas</td>
+                <td>@item.Nit</td>
+                <td>@item.Fecha.ToShortDateString()</td>
+                <td>@item.PrecioTotal</td>
+            </tr>
+        }
+    </tbody>
+</table>

@@ -1,0 +1,76 @@
+﻿@model VetApp.Models.HistPeso
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>HistPeso</h4>
+<hr />
+<div class="row">
+    <div class="col-md-8">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="CodMascota" />
+            <input type="hidden" asp-for="FechaPesaje" />
+            <table class="table table-bordered">
+                <tr>
+                    <th><label asp-for="Peso" class="control-label"></label></th>
+                    <td>
+                        <input asp-for="Peso" class="form-control" />
+                        <span asp-validation-for="Peso" class="text-danger"></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2" class="text-right">
+                        <input type="submit" value="Save" class="btn btn-primary custom-save-btn" />
+                        <a asp-action="Index" class="btn btn-secondary custom-back-btn">Back to List</a>
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
+
+<style>
+    .custom-save-btn {
+        background-color: #007bff; /* Azul */
+        border-color: #007bff;
+        color: white;
+        margin-right: 5px;
+    }
+
+    .custom-back-btn {
+        background-color: #6c757d; /* Gris */
+        border-color: #6c757d;
+        color: white;
+    }
+
+    .btn {
+        border-radius: 5px;
+        padding: 10px 20px;
+    }
+
+    .form-group {
+        margin-bottom: 15px;
+    }
+
+    .control-label {
+        font-weight: bold;
+    }
+
+    .text-danger {
+        font-size: 0.875em;
+    }
+
+    .table {
+        margin-top: 20px;
+    }
+</style>

@@ -1,0 +1,93 @@
+﻿@model IEnumerable<VetApp.Models.Comodidade>
+
+@{
+    ViewData["Title"] = "Comodidades";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create" class="btn btn-primary custom-create-btn">Create New</a>
+</p>
+<table class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Nombre)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Descripcion)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PrecioUnitario)
+            </th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Nombre)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Descripcion)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PrecioUnitario)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.IdComodidad" class="btn btn-primary custom-edit-btn">Edit</a>
+                    <a asp-action="Details" asp-route-id="@item.IdComodidad" class="btn btn-info custom-details-btn">Details</a>
+                    <a asp-action="Delete" asp-route-id="@item.IdComodidad" class="btn btn-danger custom-delete-btn">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<style>
+    .custom-create-btn {
+        background-color: #28a745; /* Verde */
+        border-color: #28a745;
+        color: white;
+    }
+
+    .custom-edit-btn {
+        background-color: #007bff; /* Azul */
+        border-color: #007bff;
+        color: white;
+        margin-right: 5px;
+    }
+
+    .custom-details-btn {
+        background-color: #17a2b8; /* Celeste */
+        border-color: #17a2b8;
+        color: white;
+        margin-right: 5px;
+    }
+
+    .custom-delete-btn {
+        background-color: #dc3545; /* Rojo */
+        border-color: #dc3545;
+        color: white;
+    }
+
+    .btn {
+        border-radius: 5px;
+        padding: 10px 20px;
+    }
+
+    .table {
+        margin-top: 20px;
+    }
+
+    .table-bordered {
+        border: 1px solid #dee2e6;
+    }
+
+    .table-striped tbody tr:nth-of-type(odd) {
+        background-color: rgba(0, 0, 0, 0.05);
+    }
+</style>

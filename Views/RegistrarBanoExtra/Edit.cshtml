@@ -1,0 +1,26 @@
+﻿@model VetApp.Models.RegistrarBanoExtraViewModel
+
+@{
+    ViewData["Title"] = "Editar Cantidad de Baños";
+}
+
+<h1>Editar Cantidad de Baños</h1>
+
+<form asp-action="Edit">
+    <div class="form-group">
+        <label asp-for="IdHospedaje" class="control-label"></label>
+        <input asp-for="IdHospedaje" class="form-control" readonly />
+    </div>
+    <div class="form-group">
+        <label asp-for="CantidadBanos" class="control-label"></label>
+        <input asp-for="CantidadBanos" class="form-control" />
+        <span asp-validation-for="CantidadBanos" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <input type="submit" value="Guardar" class="btn btn-primary" />
+    </div>
+</form>
+
+<div>
+    <a asp-action="Index">Volver a la Lista</a>
+</div>

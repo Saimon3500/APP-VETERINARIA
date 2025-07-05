@@ -1,0 +1,103 @@
+﻿@model VetApp.Models.Vacuna
+
+@{
+    ViewData["Title"] = "Editar";
+}
+
+<h1>Editar</h1>
+
+<h4>Vacuna</h4>
+<hr />
+<div class="row">
+    <div class="col-md-8">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="CodVacuna" />
+            <table class="table table-bordered">
+                <tr>
+                    <th><label asp-for="Nombre" class="control-label"></label></th>
+                    <td>
+                        <input asp-for="Nombre" class="form-control" />
+                        <span asp-validation-for="Nombre" class="text-danger"></span>
+                    </td>
+                </tr>
+                <tr>
+                    <th><label asp-for="Laboratorio" class="control-label"></label></th>
+                    <td>
+                        <input asp-for="Laboratorio" class="form-control" />
+                        <span asp-validation-for="Laboratorio" class="text-danger"></span>
+                    </td>
+                </tr>
+                <tr>
+                    <th><label asp-for="PrevEnfermedad" class="control-label"></label></th>
+                    <td>
+                        <input asp-for="PrevEnfermedad" class="form-control" />
+                        <span asp-validation-for="PrevEnfermedad" class="text-danger"></span>
+                    </td>
+                </tr>
+                <tr>
+                    <th><label asp-for="Dosis" class="control-label"></label></th>
+                    <td>
+                        <input asp-for="Dosis" class="form-control" />
+                        <span asp-validation-for="Dosis" class="text-danger"></span>
+                    </td>
+                </tr>
+                <tr>
+                    <th><label asp-for="PrecioUnitario" class="control-label"></label></th>
+                    <td>
+                        <input asp-for="PrecioUnitario" class="form-control" />
+                        <span asp-validation-for="PrecioUnitario" class="text-danger"></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2" class="text-right">
+                        <input type="submit" value="Guardar" class="btn btn-primary custom-save-btn" />
+                        <a asp-action="Index" class="btn btn-secondary custom-back-btn">Regresar a la Lista</a>
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
+
+<style>
+    .custom-save-btn {
+        background-color: #007bff; /* Azul */
+        border-color: #007bff;
+        color: white;
+        margin-right: 5px;
+    }
+
+    .custom-back-btn {
+        background-color: #6c757d; /* Gris */
+        border-color: #6c757d;
+        color: white;
+    }
+
+    .btn {
+        border-radius: 5px;
+        padding: 10px 20px;
+    }
+
+    .form-group {
+        margin-bottom: 15px;
+    }
+
+    .control-label {
+        font-weight: bold;
+    }
+
+    .text-danger {
+        font-size: 0.875em;
+    }
+
+    .table {
+        margin-top: 20px;
+    }
+</style>

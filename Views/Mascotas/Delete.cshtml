@@ -1,0 +1,94 @@
+﻿@using VetApp.Models
+@model Mascota
+
+@{
+    ViewData["Title"] = "Eliminar Registro";
+}
+
+<h1>Eliminar Registro</h1>
+
+<h3>¿Está seguro de que desea eliminar el registro de esta mascota rescatada?</h3>
+<div>
+    <h4>Mascota Rescatada</h4>
+    <hr />
+    <table class="table table-bordered">
+        <tr>
+            <th>@Html.DisplayNameFor(model => model.CodMascota)</th>
+            <td>@Html.DisplayFor(model => model.CodMascota)</td>
+        </tr>
+        <tr>
+            <th>@Html.DisplayNameFor(model => model.CodCliente)</th>
+            <td>@Html.DisplayFor(model => model.CodCliente)</td>
+        </tr>
+        <tr>
+            <th>@Html.DisplayNameFor(model => model.Nombre)</th>
+            <td>@Html.DisplayFor(model => model.Nombre)</td>
+        </tr>
+        <tr>
+            <th>@Html.DisplayNameFor(model => model.Especie)</th>
+            <td>@Html.DisplayFor(model => model.Especie)</td>
+        </tr>
+        <tr>
+            <th>@Html.DisplayNameFor(model => model.Raza)</th>
+            <td>@Html.DisplayFor(model => model.Raza)</td>
+        </tr>
+        <tr>
+            <th>@Html.DisplayNameFor(model => model.Color)</th>
+            <td>@Html.DisplayFor(model => model.Color)</td>
+        </tr>
+        <tr>
+            <th>@Html.DisplayNameFor(model => model.FechaNac)</th>
+            <td>@Html.DisplayFor(model => model.FechaNac)</td>
+        </tr>
+    </table>
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="CodMascota" />
+        <div class="form-group">
+            <input type="submit" value="Borrar" class="btn btn-danger custom-delete-btn" />
+            <a asp-action="Index" class="btn btn-secondary custom-back-btn">Regresar a la Lista</a>
+        </div>
+    </form>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
+
+<style>
+    .custom-delete-btn {
+        background-color: #dc3545; /* Rojo */
+        border-color: #dc3545;
+        color: white;
+        margin-right: 5px;
+    }
+
+    .custom-back-btn {
+        background-color: #6c757d; /* Gris */
+        border-color: #6c757d;
+        color: white;
+        margin-top: 10px;
+    }
+
+    .btn {
+        border-radius: 5px;
+        padding: 10px 20px;
+    }
+
+    .form-group {
+        margin-bottom: 15px;
+    }
+
+    .control-label {
+        font-weight: bold;
+    }
+
+    .text-danger {
+        font-size: 0.875em;
+    }
+
+    .table {
+        margin-top: 20px;
+    }
+</style>

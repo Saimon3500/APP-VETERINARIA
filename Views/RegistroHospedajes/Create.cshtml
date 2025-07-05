@@ -1,0 +1,129 @@
+﻿@model VetApp.ViewModels.RegistrarHospedajeViewModel
+
+@{
+    ViewData["Title"] = "Registrar Hospedaje";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<h4>Ingrese los datos para registrar un nuevo hospedaje</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div class="form-group">
+                <label asp-for="CodMascota" class="control-label"></label>
+                <select asp-for="CodMascota" class="form-control" asp-items="Model.Mascotas"></select>
+                <span asp-validation-for="CodMascota" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="FechaIngreso" class="control-label"></label>
+                <input asp-for="FechaIngreso" class="form-control" />
+                <span asp-validation-for="FechaIngreso" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="FechaSalida" class="control-label"></label>
+                <input asp-for="FechaSalida" class="form-control" />
+                <span asp-validation-for="FechaSalida" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TamanoMascota" class="control-label"></label>
+                <select asp-for="TamanoMascota" class="form-control">
+                    <option value="P">Pequeño</option>
+                    <option value="M">Mediano</option>
+                    <option value="G">Grande</option>
+                </select>
+                <span asp-validation-for="TamanoMascota" class="text-danger"></span>
+            </div>
+            <div class="form-check">
+                <input asp-for="UsaNecesidadesEspeciales" class="form-check-input" />
+                <label asp-for="UsaNecesidadesEspeciales" class="form-check-label">Usa Necesidades Especiales</label>
+                <span asp-validation-for="UsaNecesidadesEspeciales" class="text-danger"></span>
+            </div>
+
+            <div id="necesidadesEspeciales" style="display:none;">
+                <h4>Datos de Necesidades Especiales</h4>
+                <div class="form-group">
+                    <label asp-for="NombreAlimento" class="control-label"></label>
+                    <input asp-for="NombreAlimento" class="form-control" />
+                    <span asp-validation-for="NombreAlimento" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="DescripcionAlimento" class="control-label"></label>
+                    <input asp-for="DescripcionAlimento" class="form-control" />
+                    <span asp-validation-for="DescripcionAlimento" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="ProveedorAlimento" class="control-label"></label>
+                    <input asp-for="ProveedorAlimento" class="form-control" />
+                    <span asp-validation-for="ProveedorAlimento" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="CantidadAlimento" class="control-label"></label>
+                    <input asp-for="CantidadAlimento" class="form-control" />
+                    <span asp-validation-for="CantidadAlimento" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="NombreComodidad" class="control-label"></label>
+                    <input asp-for="NombreComodidad" class="form-control" />
+                    <span asp-validation-for="NombreComodidad" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="DescripcionComodidad" class="control-label"></label>
+                    <input asp-for="DescripcionComodidad" class="form-control" />
+                    <span asp-validation-for="DescripcionComodidad" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="CantidadComodidad" class="control-label"></label>
+                    <input asp-for="CantidadComodidad" class="form-control" />
+                    <span asp-validation-for="CantidadComodidad" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="NombreMedicamento" class="control-label"></label>
+                    <input asp-for="NombreMedicamento" class="form-control" />
+                    <span asp-validation-for="NombreMedicamento" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="LaboratorioMedicamento" class="control-label"></label>
+                    <input asp-for="LaboratorioMedicamento" class="form-control" />
+                    <span asp-validation-for="LaboratorioMedicamento" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="PresentacionMedicamento" class="control-label"></label>
+                    <input asp-for="PresentacionMedicamento" class="form-control" />
+                    <span asp-validation-for="PresentacionMedicamento" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="PesoNetoMedicamento" class="control-label"></label>
+                    <input asp-for="PesoNetoMedicamento" class="form-control" />
+                    <span asp-validation-for="PesoNetoMedicamento" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="CantidadMedicamento" class="control-label"></label>
+                    <input asp-for="CantidadMedicamento" class="form-control" />
+                    <span asp-validation-for="CantidadMedicamento" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Registrar" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('input[type="checkbox"][name="UsaNecesidadesEspeciales"]').change(function () {
+                if ($(this).is(":checked")) {
+                    $('#necesidadesEspeciales').show();
+                } else {
+                    $('#necesidadesEspeciales').hide();
+                }
+            });
+        });
+    </script>
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

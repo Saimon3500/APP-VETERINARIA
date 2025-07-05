@@ -1,0 +1,51 @@
+﻿@model IEnumerable<VetApp.Models.HotelConsumptionReportViewModel>
+
+@{
+    ViewData["Title"] = "Hotel Report Results";
+}
+
+<h1>Hotel Report Results</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Mascota</th>
+            <th>Nombre Mascota</th>
+            <th>Cliente</th>
+            <th>Servicio</th>
+            <th>Nombre Servicio</th>
+            <th>Observaciones</th>
+            <th>Noches Hospedadas</th>
+            <th>Cantidad Alimentos</th>
+            <th>Cantidad Medicamentos</th>
+            <th>Cantidad Comodidades</th>
+            <th>Cantidad Baños</th>  <!-- Nueva columna para la cantidad de baños -->
+            <th>NIT</th>
+            <th>Fecha</th>
+            <th>Precio Total</th>
+            <th>Precio Total General</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.CodMascota</td>
+                <td>@item.NombreMascota</td>
+                <td>@item.Cliente</td>
+                <td>@item.IdServicio</td>
+                <td>@item.NombreServicio</td>
+                <td>@item.Observaciones</td>
+                <td>@item.NochesHosp</td>
+                <td>@item.CantidadAlim</td>
+                <td>@item.CantidadMedic</td>
+                <td>@item.CantidadCom</td>
+                <td>@item.CantidadBanos</td>  <!-- Mostrar la cantidad de baños -->
+                <td>@item.Nit</td>
+                <td>@item.Fecha.ToShortDateString()</td>
+                <td>@item.PrecioTotal</td>
+                <td>@item.PrecioTotalGeneral</td>
+            </tr>
+        }
+    </tbody>
+</table>

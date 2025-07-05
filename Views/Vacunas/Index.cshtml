@@ -1,0 +1,122 @@
+﻿@model IEnumerable<VetApp.Models.Vacuna>
+
+@{
+    ViewData["Title"] = "Vacunas";
+}
+
+<h1>Índice</h1>
+
+<p>
+    <a asp-action="Create" class="btn btn-primary custom-create-btn">Crear Nuevo</a>
+</p>
+<table class="table table-striped table-bordered">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.CodVacuna)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Nombre)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Laboratorio)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PrevEnfermedad)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Dosis)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PrecioUnitario)
+            </th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CodVacuna)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Nombre)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Laboratorio)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PrevEnfermedad)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Dosis)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PrecioUnitario)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.CodVacuna" class="btn btn-primary custom-edit-btn">Editar</a>
+                    <a asp-action="Details" asp-route-id="@item.CodVacuna" class="btn btn-info custom-details-btn">Detalles</a>
+                    <a asp-action="Delete" asp-route-id="@item.CodVacuna" class="btn btn-danger custom-delete-btn">Borrar</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
+
+<style>
+    .custom-create-btn {
+        background-color: #28a745; /* Verde */
+        border-color: #28a745;
+        color: white;
+        margin-bottom: 20px;
+    }
+
+    .custom-edit-btn {
+        background-color: #007bff; /* Azul */
+        border-color: #007bff;
+        color: white;
+        margin-right: 5px;
+    }
+
+    .custom-details-btn {
+        background-color: #17a2b8; /* Celeste */
+        border-color: #17a2b8;
+        color: white;
+        margin-right: 5px;
+    }
+
+    .custom-delete-btn {
+        background-color: #dc3545; /* Rojo */
+        border-color: #dc3545;
+        color: white;
+    }
+
+    .btn {
+        border-radius: 5px;
+        padding: 10px 20px;
+    }
+
+    .form-group {
+        margin-bottom: 15px;
+    }
+
+    .control-label {
+        font-weight: bold;
+    }
+
+    .text-danger {
+        font-size: 0.875em;
+    }
+
+    .table {
+        margin-top: 20px;
+    }
+</style>

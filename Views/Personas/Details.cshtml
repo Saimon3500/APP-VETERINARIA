@@ -1,0 +1,81 @@
+﻿@model VetApp.Models.Persona
+
+@{
+    ViewData["Title"] = "Detalles";
+}
+
+<h1>Detalles</h1>
+
+<div>
+    <h4>Persona</h4>
+    <hr />
+    <table class="table table-bordered">
+        <tr>
+            <th>@Html.DisplayNameFor(model => model.Ci)</th>
+            <td>@Html.DisplayFor(model => model.Ci)</td>
+        </tr>
+        <tr>
+            <th>@Html.DisplayNameFor(model => model.Nombre)</th>
+            <td>@Html.DisplayFor(model => model.Nombre)</td>
+        </tr>
+        <tr>
+            <th>@Html.DisplayNameFor(model => model.Telefono)</th>
+            <td>@Html.DisplayFor(model => model.Telefono)</td>
+        </tr>
+        <tr>
+            <th>@Html.DisplayNameFor(model => model.Correo)</th>
+            <td>@Html.DisplayFor(model => model.Correo)</td>
+        </tr>
+        <tr>
+            <th>@Html.DisplayNameFor(model => model.Direccion)</th>
+            <td>@Html.DisplayFor(model => model.Direccion)</td>
+        </tr>
+    </table>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.Ci" class="btn btn-primary custom-edit-btn">Editar</a>
+    <a asp-action="Index" class="btn btn-secondary custom-back-btn">Regresar a la Lista</a>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
+
+<style>
+    .custom-edit-btn {
+        background-color: #007bff; /* Azul */
+        border-color: #007bff;
+        color: white;
+        margin-right: 5px;
+    }
+
+    .custom-back-btn {
+        background-color: #6c757d; /* Gris */
+        border-color: #6c757d;
+        color: white;
+        margin-top: 10px;
+    }
+
+    .btn {
+        border-radius: 5px;
+        padding: 10px 20px;
+    }
+
+    .form-group {
+        margin-bottom: 15px;
+    }
+
+    .control-label {
+        font-weight: bold;
+    }
+
+    .text-danger {
+        font-size: 0.875em;
+    }
+
+    .table {
+        margin-top: 20px;
+    }
+</style>

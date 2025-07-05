@@ -1,0 +1,2 @@
+PARA EJECUTAR EL PROGRAMA DEBE EJECUTAR EN LA TERMINAL dotnet run
+la lista de las tablas, las consultas, los procedimientos almacenados y demás esta en la carpeta sql, de todas formas adjuntamos un word con consultas de apoyo

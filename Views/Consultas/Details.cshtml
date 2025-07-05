@@ -1,0 +1,86 @@
+﻿@using VetApp.Models
+@model Consulta
+
+@{
+    ViewData["Title"] = "Detalles";
+}
+
+<h1>Detalles</h1>
+
+<div>
+    <h4>Consulta</h4>
+    <hr />
+    <table class="table table-bordered">
+        <tr>
+            <th>@Html.DisplayNameFor(model => model.CodMascota)</th>
+            <td>@Html.DisplayFor(model => model.CodMascota)</td>
+        </tr>
+        <tr>
+            <th>@Html.DisplayNameFor(model => model.FechaConsulta)</th>
+            <td>@Html.DisplayFor(model => model.FechaConsulta)</td>
+        </tr>
+        <tr>
+            <th>@Html.DisplayNameFor(model => model.Motivo)</th>
+            <td>@Html.DisplayFor(model => model.Motivo)</td>
+        </tr>
+        <tr>
+            <th>@Html.DisplayNameFor(model => model.Diagnostico)</th>
+            <td>@Html.DisplayFor(model => model.Diagnostico)</td>
+        </tr>
+        <tr>
+            <th>@Html.DisplayNameFor(model => model.Tratamiento)</th>
+            <td>@Html.DisplayFor(model => model.Tratamiento)</td>
+        </tr>
+        <tr>
+            <th>@Html.DisplayNameFor(model => model.Medicacion)</th>
+            <td>@Html.DisplayFor(model => model.Medicacion)</td>
+        </tr>
+    </table>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.CodMascota" class="btn btn-primary custom-edit-btn">Editar</a>
+    <a asp-action="Index" class="btn btn-secondary custom-back-btn">Regresar a la Lista</a>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
+
+<style>
+    .custom-edit-btn {
+        background-color: #007bff; /* Azul */
+        border-color: #007bff;
+        color: white;
+        margin-right: 5px;
+    }
+
+    .custom-back-btn {
+        background-color: #6c757d; /* Gris */
+        border-color: #6c757d;
+        color: white;
+        margin-top: 10px;
+    }
+
+    .btn {
+        border-radius: 5px;
+        padding: 10px 20px;
+    }
+
+    .form-group {
+        margin-bottom: 15px;
+    }
+
+    .control-label {
+        font-weight: bold;
+    }
+
+    .text-danger {
+        font-size: 0.875em;
+    }
+
+    .table {
+        margin-top: 20px;
+    }
+</style>

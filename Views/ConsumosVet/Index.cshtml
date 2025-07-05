@@ -1,0 +1,70 @@
+﻿@model IEnumerable<VetApp.Models.ConsumosVet>
+
+@{
+    ViewData["Title"] = "Consumo de la Veterinaria";
+}
+
+<h1>Índice</h1>
+
+<p>
+    <a asp-action="Create" class="btn btn-success">Crear Nuevo</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.IdConsumoVet)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Observaciones)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CantVacunas)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Nit)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CodMascotaNavigation.Nombre)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CodVacunaNavigation.Nombre)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IdServicioNavigation.Nombre)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.IdConsumoVet)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Observaciones)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CantVacunas)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Nit)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CodMascotaNavigation.Nombre)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CodVacunaNavigation.Nombre)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.IdServicioNavigation.Nombre)
+                </td>
+                <td>
+                    <a asp-action="Edit" class="btn btn-primary" asp-route-id="@item.IdConsumoVet">Editar</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

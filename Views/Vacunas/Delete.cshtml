@@ -1,0 +1,89 @@
+﻿@model VetApp.Models.Vacuna
+
+@{
+    ViewData["Title"] = "Eliminar";
+}
+
+<h1>Eliminar</h1>
+
+<h3>¿Está seguro de que desea eliminar esto?</h3>
+<div>
+    <h4>Vacuna</h4>
+    <hr />
+    <table class="table table-bordered">
+        <tr>
+            <th>@Html.DisplayNameFor(model => model.CodVacuna)</th>
+            <td>@Html.DisplayFor(model => model.CodVacuna)</td>
+        </tr>
+        <tr>
+            <th>@Html.DisplayNameFor(model => model.Nombre)</th>
+            <td>@Html.DisplayFor(model => model.Nombre)</td>
+        </tr>
+        <tr>
+            <th>@Html.DisplayNameFor(model => model.Laboratorio)</th>
+            <td>@Html.DisplayFor(model => model.Laboratorio)</td>
+        </tr>
+        <tr>
+            <th>@Html.DisplayNameFor(model => model.PrevEnfermedad)</th>
+            <td>@Html.DisplayFor(model => model.PrevEnfermedad)</td>
+        </tr>
+        <tr>
+            <th>@Html.DisplayNameFor(model => model.Dosis)</th>
+            <td>@Html.DisplayFor(model => model.Dosis)</td>
+        </tr>
+        <tr>
+            <th>@Html.DisplayNameFor(model => model.PrecioUnitario)</th>
+            <td>@Html.DisplayFor(model => model.PrecioUnitario)</td>
+        </tr>
+    </table>
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="CodVacuna" />
+        <div class="form-group">
+            <input type="submit" value="Borrar" class="btn btn-danger custom-delete-btn" />
+            <a asp-action="Index" class="btn btn-secondary custom-back-btn">Regresar a la Lista</a>
+        </div>
+    </form>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
+
+<style>
+    .custom-delete-btn {
+        background-color: #dc3545; /* Rojo */
+        border-color: #dc3545;
+        color: white;
+        margin-right: 5px;
+    }
+
+    .custom-back-btn {
+        background-color: #6c757d; /* Gris */
+        border-color: #6c757d;
+        color: white;
+        margin-top: 10px;
+    }
+
+    .btn {
+        border-radius: 5px;
+        padding: 10px 20px;
+    }
+
+    .form-group {
+        margin-bottom: 15px;
+    }
+
+    .control-label {
+        font-weight: bold;
+    }
+
+    .text-danger {
+        font-size: 0.875em;
+    }
+
+    .table {
+        margin-top: 20px;
+    }
+</style>

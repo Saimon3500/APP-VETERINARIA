@@ -1,0 +1,32 @@
+﻿@model IEnumerable<VetApp.Models.RegistrarBanoExtraViewModel>
+
+@{
+    ViewData["Title"] = "Baños Registrados";
+}
+
+<h1>Baños Registrados</h1>
+<p>
+    <a asp-action="RegistrarBano" class="btn btn-primary custom-create-btn">Crear Nuevo</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID del Hospedaje</th>
+            <th>Cantidad de Baños</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.IdHospedaje</td>
+                <td>@item.CantidadBanos</td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.IdHospedaje }, new { @class = "btn btn-secondary" }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.IdHospedaje }, new { @class = "btn btn-secondary" }) |
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

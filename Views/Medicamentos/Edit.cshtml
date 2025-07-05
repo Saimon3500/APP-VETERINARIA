@@ -1,0 +1,103 @@
+﻿@model VetApp.Models.Medicamento
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>Medicamento</h4>
+<hr />
+<div class="row">
+    <div class="col-md-8">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="CodMedicamento" />
+            <table class="table table-bordered">
+                <tr>
+                    <th><label asp-for="Laboratorio" class="control-label"></label></th>
+                    <td>
+                        <input asp-for="Laboratorio" class="form-control" />
+                        <span asp-validation-for="Laboratorio" class="text-danger"></span>
+                    </td>
+                </tr>
+                <tr>
+                    <th><label asp-for="Presentacion" class="control-label"></label></th>
+                    <td>
+                        <input asp-for="Presentacion" class="form-control" />
+                        <span asp-validation-for="Presentacion" class="text-danger"></span>
+                    </td>
+                </tr>
+                <tr>
+                    <th><label asp-for="PesoNeto" class="control-label"></label></th>
+                    <td>
+                        <input asp-for="PesoNeto" class="form-control" />
+                        <span asp-validation-for="PesoNeto" class="text-danger"></span>
+                    </td>
+                </tr>
+                <tr>
+                    <th><label asp-for="PrecioUnitario" class="control-label"></label></th>
+                    <td>
+                        <input asp-for="PrecioUnitario" class="form-control" />
+                        <span asp-validation-for="PrecioUnitario" class="text-danger"></span>
+                    </td>
+                </tr>
+                <tr>
+                    <th><label asp-for="Nombre" class="control-label"></label></th>
+                    <td>
+                        <input asp-for="Nombre" class="form-control" />
+                        <span asp-validation-for="Nombre" class="text-danger"></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2" class="text-right">
+                        <input type="submit" value="Save" class="btn btn-primary custom-save-btn" />
+                        <a asp-action="Index" class="btn btn-secondary custom-back-btn">Back to List</a>
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
+
+<style>
+    .custom-save-btn {
+        background-color: #007bff; /* Azul */
+        border-color: #007bff;
+        color: white;
+        margin-right: 5px;
+    }
+
+    .custom-back-btn {
+        background-color: #6c757d; /* Gris */
+        border-color: #6c757d;
+        color: white;
+    }
+
+    .btn {
+        border-radius: 5px;
+        padding: 10px 20px;
+    }
+
+    .form-group {
+        margin-bottom: 15px;
+    }
+
+    .control-label {
+        font-weight: bold;
+    }
+
+    .text-danger {
+        font-size: 0.875em;
+    }
+
+    .table {
+        margin-top: 20px;
+    }
+</style>

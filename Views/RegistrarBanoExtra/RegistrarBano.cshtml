@@ -1,0 +1,25 @@
+﻿@model VetApp.Models.RegistrarBanoExtraViewModel
+@{
+    ViewData["Title"] = "Registrar Baño Extra";
+}
+
+<h1>Registrar Baño Extra</h1>
+
+<form asp-action="RegistrarBano" method="post">
+    <div class="form-group">
+        <label for="IdHospedaje">ID del Hospedaje</label>
+        <select asp-for="IdHospedaje" class="form-control" asp-items="ViewBag.Hospedajes"></select>
+    </div>
+    <div class="form-group">
+        <label for="CantidadBanos">Cantidad de Baños</label>
+        <input type="number" class="form-control" id="CantidadBanos" name="CantidadBanos" required />
+    </div>
+    <button type="submit" class="btn btn-primary">Registrar Baño</button>
+</form>
+
+@if (ViewBag.Message != null)
+{
+    <div class="alert alert-success">
+        @ViewBag.Message
+    </div>
+}
